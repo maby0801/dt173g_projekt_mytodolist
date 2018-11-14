@@ -19,7 +19,7 @@
         <input type="date" id="deadline_update" placeholder="Deadline" value="<?php echo $_GET['deadline'];?>"/><br />
         <button id="update">Update</button>
     </div>
-    <script src="js/main.js"></script>
+    <script src="js/main.min.js"></script>
 </body>
 
 </html>

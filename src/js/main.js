@@ -10,7 +10,7 @@ var taskListEl = document.getElementById("taskList");
 var addEl = document.getElementById("add");
 var updateEl = document.getElementById("update");
 var taskListWrapperEl = document.getElementById("taskListWrapper");
-var URL = "http://localhost/(DT173G)%20Webbutveckling%20III/Projektarbete/webbplats/webservice-mytodolist.php/posts"
+var URL = "http://localhost/(DT173G)%20Webbutveckling%20III/Projektarbete/webbplats/pub/webservice-mytodolist.php/posts"
 
 // EVENT LISTENERS
 if (taskListWrapperEl) {

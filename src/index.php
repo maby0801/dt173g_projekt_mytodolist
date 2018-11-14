@@ -14,7 +14,7 @@
     </div>
 
     <a href="newpost.php">Create new task</a>
-    <script src="js/main.js"></script>
+    <script src="js/main.min.js"></script>
 </body>
 
 </html>
