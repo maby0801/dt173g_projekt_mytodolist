@@ -1,0 +1,21 @@
+// Imports
+@import 'variables';
+@import 'general';
+@import 'articles';
+@import 'form';
+
+// Fonts
+@font-face {
+    font-family: Signatra;
+    src: url(../fonts/Signatra.ttf)
+}
+
+@font-face {
+    font-family: CaslonPro;
+    src: url(../fonts/CaslonPro.otf)
+}
+
+@font-face {
+    font-family: WalkwayUltraBold;
+    src: url(../fonts/WalkwayUltraBold.ttf);
+}

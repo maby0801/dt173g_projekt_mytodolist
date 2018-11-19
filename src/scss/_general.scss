@@ -1,0 +1,88 @@
+// General for text and layout
+body {
+    background-color: $primary-color;
+    margin: 60px 0 0 0;
+}
+
+#wrapper {
+    max-width: 1017px;
+    margin: auto;
+    padding-bottom: 200px;
+}
+
+header {
+    background-color: darken($primary-color, 15%);
+    padding: 1em;
+    border-radius: 5px 5px 0 0;
+    height: 50px;
+
+    h1 {
+        font-family: Signatra;
+        font-weight: 100;
+        font-size: 280%;
+        color: $off-white-color;
+        margin-top: 2px;
+        margin-bottom: 0;
+        padding: 0;
+    }
+}
+
+main {
+    background-color: $off-white-color;
+    min-height: 600px;
+    padding: 1em 1em 2.5em 1em;
+    border-radius: 5px 5px 0 0;
+    position: relative;
+    top: -5px;
+}
+
+h2 {
+    font-family: CaslonPro;
+    text-transform: uppercase;
+    font-size: 80%;
+    font-weight: 100;
+    color: $off-black-color;
+    border-width: 0 0 1px 0;
+    border-color: lighten($off-black-color, 40%);
+    border-style: solid;
+    margin-top: 2.5em;
+}
+
+h2:first-of-type {
+    margin-top: 0;
+}
+
+h2.today {
+    font-weight: bold;
+}
+
+#errorMsg {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: $notification-color;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    text-align: center;
+
+    a {
+        color: rgba($off-white-color, .97);
+        text-decoration: none;
+    }
+
+    p {
+        color: rgba($off-white-color, .97);
+        height: 35px;
+        padding: 0;
+        margin: 0;
+        padding-top: 15px;
+    }
+
+    span {
+        color: rgba($off-white-color, .6);
+        text-decoration: none;
+    }
+}
+
+#errorMsg:hover {
+    cursor: pointer;
+}

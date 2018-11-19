@@ -1,0 +1,51 @@
+// Articles
+article {
+    margin-bottom: 0.5em;
+    border-radius: 5px;
+    padding: 6px 10px 6px 10px;
+
+    font-family: WalkwayUltraBold;
+    font-size: 110%;
+    font-weight: bold;
+
+    // background: pink;
+
+    p {
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+        max-width: 70%;
+    }
+
+    button {
+        float: right;
+        margin-left: 0.5em;
+        min-height: 19px;
+        min-width: 19px;
+        border-width: 0;
+        background: none;
+    }
+    
+    button.updateButton {
+        background-image: url('../img/edit_button.png');
+    }
+    
+    button.deleteButton {
+        background-image: url('../img/delete_button.png');
+    }
+    
+    button:hover {
+        cursor: pointer;
+    }
+}
+
+article.late {
+    background-color: rgba($notification-color, .3);
+}
+
+article:hover {
+    background-color: rgba($primary-color, .6);
+    cursor: pointer;
+}
+
+// Buttons

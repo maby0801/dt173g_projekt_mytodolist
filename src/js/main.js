@@ -10,6 +10,7 @@ var taskListEl = document.getElementById("taskList");
 var addEl = document.getElementById("add");
 var updateEl = document.getElementById("update");
 var taskListWrapperEl = document.getElementById("taskListWrapper");
+var errorMsgEl = document.getElementById("errorMsg");
 var URL = "http://localhost/(DT173G)%20Webbutveckling%20III/Projektarbete/webbplats/pub/webservice-mytodolist.php/posts"
 
 // EVENT LISTENERS
@@ -27,6 +28,10 @@ if (addEl) {
 
 if (updateEl) {
     updateEl.addEventListener("click", updateTask, false);
+}
+
+if (errorMsgEl) {
+    errorMsgEl.addEventListener("click", hideNotification, false);
 }
 
 // FUNCTIONS
@@ -53,7 +58,7 @@ function addTask() {
     // if( !(body != '' && deadline != '') ) location.reload();
 
     if (body === '' || deadline === '') {
-        document.getElementById("errorMsg").innerHTML = "<p>Please enter a task and select a due date</p>";
+        errorMsgEl.innerHTML = "<p>Please enter a task and select a due date <span>(Click to hide)</span></p>";
     } else {
         // Store data
         let json = { "body": body, "deadline": deadline };
@@ -68,6 +73,10 @@ function addTask() {
             window.location.replace('index.php');
         }
     }
+}
+
+function hideNotification(){
+    errorMsgEl.innerHTML = "";
 }
 
 function updateTask() {
@@ -119,27 +128,27 @@ function getTask() {
                     var taskYear = jsonData[i].deadline.slice(0, 4)
 
                     // Article element structure
-                    var taskBody = jsonData[i].body +
-                        "<a href='update.php?id=" + jsonData[i].ID + "&body=" + jsonData[i].body + "&deadline=" + jsonData[i].deadline + "'><button>Update</button></a>" +
-                        "<button id='" + jsonData[i].ID + "'>Delete #" + jsonData[i].ID + "</button>" +
+                    var taskBody = "<p>" + jsonData[i].body + "</p>" +
+                        "<button class='deleteButton' id='" + jsonData[i].ID + "'></button>" +
+                        "<a href='update.php?id=" + jsonData[i].ID + "&body=" + jsonData[i].body + "&deadline=" + jsonData[i].deadline + "'><button class='updateButton'></button></a>" +
                         "</article>";
 
                     // The first iteration
                     // Determine if the task is scheduled today, tomorrow or neither
                     if (i === 0) {
                         if (year + "-" + month + "-" + today === jsonData[i].deadline) {
-                            taskListWrapperEl.innerHTML += "<h3>Today</h3>";
+                            taskListWrapperEl.innerHTML += "<h2 class='today'>Today</h2>";
 
 
                         } else if (year + "-" + month + "-" + tomorrow === jsonData[i].deadline) {
-                            taskListWrapperEl.innerHTML += "<h3>Tomorrow</h3>";
+                            taskListWrapperEl.innerHTML += "<h2>Tomorrow</h2>";
 
                         } else {
                             // Printing date format
                             if (taskDay <= 9) {
-                                taskListWrapperEl.innerHTML += "<h3>" + months[taskMonth] + " " + taskDay.slice(1) + ", " + taskYear;
+                                taskListWrapperEl.innerHTML += "<h2>" + months[taskMonth] + " " + taskDay.slice(1) + ", " + taskYear;
                             } else {
-                                taskListWrapperEl.innerHTML += "<h3>" + months[taskMonth] + " " + taskDay + ", " + taskYear;
+                                taskListWrapperEl.innerHTML += "<h2>" + months[taskMonth] + " " + taskDay + ", " + taskYear;
                             }
                         }
                     }
@@ -150,17 +159,17 @@ function getTask() {
                     // Determine if the task is scheduled today, tomorrow or neither
                     if (i > 0 && jsonData[i].deadline != jsonData[i - 1].deadline) {
                         if (year + "-" + month + "-" + today === jsonData[i].deadline) {
-                            taskListWrapperEl.innerHTML += "<h3>Today</h3>";
+                            taskListWrapperEl.innerHTML += "<h2 class='today'>Today</h2>";
 
                         } else if (year + "-" + month + "-" + tomorrow === jsonData[i].deadline) {
-                            taskListWrapperEl.innerHTML += "<h3>Tomorrow</h3>";
+                            taskListWrapperEl.innerHTML += "<h2>Tomorrow</h2>";
 
                         } else {
                             // Printing date format
                             if (taskDay <= 9) {
-                                taskListWrapperEl.innerHTML += "<h3>" + months[taskMonth] + " " + taskDay.slice(1) + ", " + taskYear;
+                                taskListWrapperEl.innerHTML += "<h2>" + months[taskMonth] + " " + taskDay.slice(1) + ", " + taskYear;
                             } else {
-                                taskListWrapperEl.innerHTML += "<h3>" + months[taskMonth] + " " + taskDay + ", " + taskYear;
+                                taskListWrapperEl.innerHTML += "<h2>" + months[taskMonth] + " " + taskDay + ", " + taskYear;
                             }
                         }
                     }
