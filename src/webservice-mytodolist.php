@@ -34,14 +34,6 @@ $DBUSER = 'root';
 $DBPASS = 'hurpdurp';
 $DBNAME = 'myTodoList';
 
-// Public connection
-/*
-$DBHOST = 'studentmysql.miun.se';
-$DBUSER = 'maby0801';
-$DBPASS = '5tBM0P0NEH3WdYoa';
-$DBNAME = 'maby0801';
-*/
-
 // Connect to database
 $conn = mysqli_connect($DBHOST, $DBUSER, $DBPASS, $DBNAME) or die("Error connecting to database.");
 $db_connected = mysqli_select_db($conn, $DBNAME);

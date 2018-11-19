@@ -16,14 +16,21 @@ header {
     border-radius: 5px 5px 0 0;
     height: 50px;
 
-    h1 {
+    h1 a {
         font-family: Signatra;
         font-weight: 100;
-        font-size: 280%;
+        font-size: 170%;
         color: $off-white-color;
-        margin-top: 2px;
+        position: relative;
+        top: -22px;
+        text-decoration: none;
+        // margin-top: 2px;
         margin-bottom: 0;
         padding: 0;
+    }
+
+    a:hover {
+        color: rgba($off-white-color, .8);
     }
 }
 
@@ -63,6 +70,7 @@ h2.today {
     top: 0;
     width: 100%;
     text-align: center;
+    z-index: 100;
 
     a {
         color: rgba($off-white-color, .97);

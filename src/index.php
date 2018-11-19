@@ -9,21 +9,22 @@
 <body>
     <div id="errorMsg">
         <!-- Notifications will be displayed here -->
-        <p>This is a notification! <span>(Click to hide)</span></p>
     </div>
     <div id="wrapper">
         <header>
-            <h1>myTodoList</h1>
+            <h1><a href="index.php">myTodoList</a></h1>
         </header>
         
         <main>
-            <div id="taskListForm">
-                <p>Task</p>
-                <input type="text" id="task" placeholder="describe your task..." /><br />
-                <p>Enter a due date</p>
-                <input type="date" id="deadline" placeholder="Deadline" /><br />
-                <button id="add">Add task</button>
-            </div>
+            <?php
+            if(isset($_GET['id'])){
+                // Display update post form
+                include('updatepost.php');
+            } else {
+                // Display add post form
+                include('addpost.php');
+            }
+            ?>
 
             <div id="taskListWrapper">
                 <!-- Tasks will be displayed here -->

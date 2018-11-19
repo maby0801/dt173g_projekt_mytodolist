@@ -22,34 +22,60 @@
         padding-left: 0.5em;
     }
 
-    // Input form task
+    // Add post form
     #task {
         @extend .generalInput;
         width: 90%;
         color: darken($primary-color, 35%);
     }
 
-    // Input form deadline
     #deadline {
         @extend .generalInput;
+        max-width: 50%;
         color: darken($primary-color, 35%);
         float: left;
     }
-}
 
+    // Update form
+    #task_update {
+        @extend #task;
+    }
 
-#add {
-    clear: right;
-    font-family: Arial, Helvetica, sans-serif;
-    color: $off-white-color;
-    padding: 0 8px 0 8px;
-    font-weight: bold;
-    height: 35px;
-    border-radius: 5px;
-    background: $secondary-color;
-    border: 0;
-    margin-left: 1em;
+    #deadline_update {
+        @extend #deadline;
+    }
 
-    position: relative;
-    top: -18px;
+    #id_no {
+        display: none;
+    }
+
+    // Buttons
+    #add {
+        clear: right;
+        font-family: Arial, Helvetica, sans-serif;
+        color: $off-white-color;
+        padding: 0 8px 0 8px;
+        font-weight: bold;
+        height: 35px;
+        border-radius: 5px;
+        background: $secondary-color;
+        border: 0;
+        margin-left: 1em;
+    
+        position: relative;
+        top: -18px;
+    }
+
+    #add:hover {
+        cursor: pointer;
+    }
+    
+    #update {
+        @extend #add;
+    }
+
+    #cancel {
+        @extend #add;
+        background-color: lighten($off-black-color, 20%);
+    }
 }

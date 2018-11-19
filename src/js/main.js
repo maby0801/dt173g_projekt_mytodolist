@@ -11,6 +11,8 @@ var addEl = document.getElementById("add");
 var updateEl = document.getElementById("update");
 var taskListWrapperEl = document.getElementById("taskListWrapper");
 var errorMsgEl = document.getElementById("errorMsg");
+
+// Local
 var URL = "http://localhost/(DT173G)%20Webbutveckling%20III/Projektarbete/webbplats/pub/webservice-mytodolist.php/posts"
 
 // EVENT LISTENERS
@@ -118,7 +120,7 @@ function getTask() {
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == XMLHttpRequest.DONE) {
             if (xmlhttp.status == 200) {
-
+                var lateTasks = false;
                 var jsonData = JSON.parse(xmlhttp.responseText);
                 for (var i = 0; i < jsonData.length; i++) {
                     // Date format
@@ -130,7 +132,7 @@ function getTask() {
                     // Article element structure
                     var taskBody = "<p>" + jsonData[i].body + "</p>" +
                         "<button class='deleteButton' id='" + jsonData[i].ID + "'></button>" +
-                        "<a href='update.php?id=" + jsonData[i].ID + "&body=" + jsonData[i].body + "&deadline=" + jsonData[i].deadline + "'><button class='updateButton'></button></a>" +
+                        "<a href='index.php?id=" + jsonData[i].ID + "&body=" + jsonData[i].body + "&deadline=" + jsonData[i].deadline + "'><button class='updateButton'></button></a>" +
                         "</article>";
 
                     // The first iteration
@@ -184,6 +186,8 @@ function getTask() {
                             taskBody;
 
                     } else if (today > taskDay && month >= taskMonth && year >= taskYear) {
+                        lateTasks = true;
+
                         taskListWrapperEl.innerHTML += "<article class='late'>" +
                             taskBody;
 
@@ -203,9 +207,13 @@ function getTask() {
             else {
                 alert('something else other than 200 was returned');
             }
+
+            // Late task notifier
+            if(lateTasks === true){
+                errorMsgEl.innerHTML = "<p>There are late tasks in your list <span>(Click to hide)</span></p>";
+            }
         }
     };
-
     xmlhttp.open("GET", URL, true);
     xmlhttp.send();
 }
