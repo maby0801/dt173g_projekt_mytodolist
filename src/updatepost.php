@@ -5,5 +5,7 @@
     <p>Enter a due date</p>
     <input type="date" id="deadline_update" placeholder="Deadline" value="<?php echo $_GET['deadline'];?>"/><br />
     <button id="update">Update</button>
-    <button id="cancel">Cancel</button>
+    <a href="index.php">
+        <button id="cancel">Cancel</button>
+    </a>
 </div>

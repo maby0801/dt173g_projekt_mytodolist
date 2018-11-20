@@ -24,7 +24,7 @@ header {
         position: relative;
         top: -22px;
         text-decoration: none;
-        // margin-top: 2px;
+        margin-top: 2px;
         margin-bottom: 0;
         padding: 0;
     }
@@ -63,7 +63,7 @@ h2.today {
     font-weight: bold;
 }
 
-#errorMsg {
+#errorMsgArea {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background: $notification-color;
     position: fixed;
@@ -71,6 +71,9 @@ h2.today {
     width: 100%;
     text-align: center;
     z-index: 100;
+
+    animation-name: slipin;
+    animation-duration: 0.5s;
 
     a {
         color: rgba($off-white-color, .97);
@@ -91,6 +94,34 @@ h2.today {
     }
 }
 
-#errorMsg:hover {
+#errorMsgArea:hover {
     cursor: pointer;
+}
+
+#errorMsgAreaHide {
+    @extend #errorMsgArea;
+
+    animation-name: slipout;
+    animation-fill-mode: forwards;
+    animation-duration: 0.5s;
+}
+
+@keyframes slipin {
+    from {
+        top: -50px;
+    }
+
+    to {
+        top: 0;
+    }
+}
+
+@keyframes slipout {
+    from {
+        top: 0;
+    }
+
+    to {
+        top: -50px;
+    }
 }

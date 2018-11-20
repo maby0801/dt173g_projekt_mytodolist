@@ -10,7 +10,7 @@ var taskListEl = document.getElementById("taskList");
 var addEl = document.getElementById("add");
 var updateEl = document.getElementById("update");
 var taskListWrapperEl = document.getElementById("taskListWrapper");
-var errorMsgEl = document.getElementById("errorMsg");
+var errorMsgEl = document.getElementById("errorMsgArea");
 
 // Local
 var URL = "http://localhost/(DT173G)%20Webbutveckling%20III/Projektarbete/webbplats/pub/webservice-mytodolist.php/posts"
@@ -60,7 +60,7 @@ function addTask() {
     // if( !(body != '' && deadline != '') ) location.reload();
 
     if (body === '' || deadline === '') {
-        errorMsgEl.innerHTML = "<p>Please enter a task and select a due date <span>(Click to hide)</span></p>";
+        errorMsgEl.innerHTML = "<p id='errorMsgArea'>Please enter a task and select a due date <span>(Click to hide)</span></p>";
     } else {
         // Store data
         let json = { "body": body, "deadline": deadline };
@@ -77,8 +77,8 @@ function addTask() {
     }
 }
 
-function hideNotification(){
-    errorMsgEl.innerHTML = "";
+function hideNotification(e){
+    errorMsgEl.innerHTML = "<p id='errorMsgAreaHide'></p>";
 }
 
 function updateTask() {
@@ -87,7 +87,7 @@ function updateTask() {
     let deadline = document.getElementById("deadline_update").value;
 
     if (body === '' || deadline === '') {
-        document.getElementById("errorMsg").innerHTML = "<p>Please enter a task and select a due date</p>";
+        document.getElementById("errorMsg").innerHTML = "<p id='errorMsgArea'>Please enter a task and select a due date</p>";
     } else {
         // Store data
         let json = { "body": body, "deadline": deadline };
@@ -210,7 +210,7 @@ function getTask() {
 
             // Late task notifier
             if(lateTasks === true){
-                errorMsgEl.innerHTML = "<p>There are late tasks in your list <span>(Click to hide)</span></p>";
+                errorMsgEl.innerHTML = "<p id='errorMsg'>There are late tasks in your list <span>(Click to hide)</span></p>";
             }
         }
     };

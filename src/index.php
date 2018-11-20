@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <div id="errorMsg">
+    <div id="errorMsgArea">
         <!-- Notifications will be displayed here -->
     </div>
     <div id="wrapper">
@@ -30,7 +30,6 @@
                 <!-- Tasks will be displayed here -->
             </div>
         </main>
-    </div><!-- #wrapper -->
 
 <script src="js/main.min.js"></script>
 </body>
