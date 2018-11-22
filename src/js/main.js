@@ -178,8 +178,12 @@ function getTask() {
 
                     // Creating article elements
                     if (year + "-" + month + "-" + today === jsonData[i].deadline) {
+                        // If-sats som kollar om uppgiften är färdig. Skriv ut <span>-element med klass
+
                         taskListWrapperEl.innerHTML += "<article class='today'>" +
                             taskBody;
+
+                        // If-sats som kollar om uppgiften är färdig. Skriv ut stängande <span>-element
 
                     } else if (year + "-" + month + "-" + tomorrow === jsonData[i].deadline) {
                         taskListWrapperEl.innerHTML += "<article class='tomorrow'>" +
