@@ -13,7 +13,7 @@ var taskListWrapperEl = document.getElementById("taskListWrapper");
 var errorMsgEl = document.getElementById("errorMsgArea");
 
 // Local
-var URL = "http://localhost/(DT173G)%20Webbutveckling%20III/Projektarbete/webbplats/pub/webservice-mytodolist.php/posts"
+var URL = "http://localhost/(DT173G)%20Webbutveckling%20III/Projektarbete/dt173g_projekt_mytodolist/pub/webservice-mytodolist.php/posts"
 
 // EVENT LISTENERS
 if (taskListWrapperEl) {
