@@ -106,14 +106,18 @@ function updateTask() {
 
 function getTask() {
     var date = new Date();
-    var today = date.getDate();
+    var today = date.getDate(); 
     var yesterday = date.getDate() - 1;
     var tomorrow = date.getDate() + 1;
     var month = date.getMonth() + 1;
     var year = date.getFullYear();
 
-    // var currentDate = date.getDate() + "-" + mm + "-" + date.getFullYear();
-    // console.log(currentDate);
+    // Correct date format
+    // Date values need to be displayed as "01" and not "1", so they can be correctly comparable with task deadlines
+    if(today<10){today = "0"+today};
+    if(yesterday<10){yesterday = "0"+yesterday};
+    if(tomorrow<10){tomorrow = "0"+tomorrow};
+    if(month<10){month = "0"+month};
 
     var xmlhttp = new XMLHttpRequest();
 
@@ -138,7 +142,7 @@ function getTask() {
                     // The first iteration
                     // Determine if the task is scheduled today, tomorrow or neither
                     if (i === 0) {
-                        if (year + "-" + month + "-" + today === jsonData[i].deadline) {
+                        if (today == taskDay && month == taskMonth && year == taskYear) {
                             taskListWrapperEl.innerHTML += "<h2 class='today'>Today</h2>";
 
 
@@ -146,7 +150,11 @@ function getTask() {
                             taskListWrapperEl.innerHTML += "<h2>Tomorrow</h2>";
 
                         } else {
+                            // Correct date format
+                            if(taskMonth < 10){taskMonth = taskMonth.slice(1)};
+
                             // Printing date format
+                            console.log(taskMonth);
                             if (taskDay <= 9) {
                                 taskListWrapperEl.innerHTML += "<h2>" + months[taskMonth] + " " + taskDay.slice(1) + ", " + taskYear;
                             } else {
@@ -167,6 +175,9 @@ function getTask() {
                             taskListWrapperEl.innerHTML += "<h2>Tomorrow</h2>";
 
                         } else {
+                            // Correct date format
+                            if(taskMonth < 10){taskMonth = taskMonth.slice(1)};
+
                             // Printing date format
                             if (taskDay <= 9) {
                                 taskListWrapperEl.innerHTML += "<h2>" + months[taskMonth] + " " + taskDay.slice(1) + ", " + taskYear;
@@ -185,7 +196,7 @@ function getTask() {
                         taskListWrapperEl.innerHTML += "<article class='tomorrow'>" +
                             taskBody;
 
-                    } else if (today > taskDay && month >= taskMonth && year >= taskYear) {
+                    } else if (today > taskDay && month >= taskMonth || year > taskYear) {
                         lateTasks = true;
 
                         taskListWrapperEl.innerHTML += "<article class='late'>" +
