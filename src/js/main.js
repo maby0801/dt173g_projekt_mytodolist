@@ -154,7 +154,6 @@ function getTask() {
                             if(taskMonth < 10){taskMonth = taskMonth.slice(1)};
 
                             // Printing date format
-                            console.log(taskMonth);
                             if (taskDay <= 9) {
                                 taskListWrapperEl.innerHTML += "<h2>" + months[taskMonth] + " " + taskDay.slice(1) + ", " + taskYear;
                             } else {

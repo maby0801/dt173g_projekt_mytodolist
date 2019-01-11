@@ -30,7 +30,7 @@
                 <!-- Tasks will be displayed here -->
             </div>
         </main>
-
+    </div>
 <script src="js/main.min.js"></script>
 </body>
 

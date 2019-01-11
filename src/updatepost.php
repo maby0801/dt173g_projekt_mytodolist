@@ -3,9 +3,8 @@
     <p>Task</p>
     <input type="text" id="task_update" placeholder="Task" value="<?php echo $_GET['body'];?>"/><br />
     <p>Enter a due date</p>
-    <input type="date" id="deadline_update" placeholder="Deadline" value="<?php echo $_GET['deadline'];?>"/><br />
+    <input type="date" id="deadline_update" value="<?php echo $_GET['deadline'];?>"/><br />
     <button id="update">Update</button>
-    <a href="index.php">
-        <button id="cancel">Cancel</button>
-    </a>
+
+    <a id="cancel" href="index.php">Cancel</a>
 </div>

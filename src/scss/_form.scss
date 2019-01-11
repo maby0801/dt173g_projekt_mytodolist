@@ -82,8 +82,15 @@
     }
 
     #cancel {
-        @extend #add;
-        background-color: lighten($off-black-color, 20%);
-        box-shadow: 0px 4px $off-black-color;
+        background-color: $off-white-color;
+        box-shadow: 0px 0px $off-black-color;
+        color: $off-black-color;
+        margin-left: 10px;
+        position: relative;
+        top: -5px;
+    }
+
+    #cancel:hover {
+        color: $notification-color;
     }
 }
